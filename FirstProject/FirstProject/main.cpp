@@ -1,8 +1,9 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
-int main()
+void isLuckyTest()
 {
 	int n;
 	bool isLucky = false;;
@@ -19,6 +20,46 @@ int main()
 
 
 	cout << isLucky;
+}
+
+void task10()
+{
+	fstream input;
+	fstream output;
+	input.open("INPUT.TXT");
+	output.open("OUTPUT.TXT", ios_base::trunc | ios_base::out);
+
+	bool isFirst = true;
+
+	int a, b, c, d;
+	input >> a >> b >> c >> d;
+	for (int x = -100; x <= 100; x++)
+
+	{
+		if (a*x*x*x + b*x*x + c*x + d == 0)
+		{
+			if (!isFirst)
+				output << ' ' << x;
+			else
+			{ 
+				output << x;
+				isFirst = false;
+			}
+				
+		}
+	}
+
+
+	input.close();
+	output.close();
+}
+
+
+
+
+int main()
+{
+	task10();
 
 	return 0;
 }
